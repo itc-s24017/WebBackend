@@ -66,4 +66,17 @@ router.post('/post',
     }
 )
 
+router.post('/user/register',
+    check('message').notEmpty(),
+    async (req, res) => {
+    const result = validationResult(req)
+        if (result.isEmpty()) {
+            await prisma.post.create({
+                data: {
+
+                }
+            })
+        }
+    })
+
 export default router
